@@ -1,0 +1,22 @@
+<h1>Lista de Produtos</h1>
+
+<table>
+	<tr>
+		<th>Nome</th>
+    <th>Preço</th>
+		<th colspan="2"></th>
+	</tr>
+
+	<% @products.each do |product| %>
+		<tr>
+      <td><%= product.name %></td>  
+      <td><%= product.price %></td>
+      <td><%= link_to 'Exibir', product_path(product) %></td>
+      <td><%= link_to 'Editar', edit_product_path(product) %></td>
+      <td><%= link_to 'Apagar', product_path(product),
+                        method: :delete, data: { confirm: 'Deseja realmente excluir?'} %></td>
+    </tr>
+    <% end %>
+</table>
+
+<%= link_to 'Cadastrar novo produto', new_product_path %>

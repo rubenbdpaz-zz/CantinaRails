@@ -42,9 +42,9 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      if params[:product].present?
+      #if params[:product].present?
       params.require(:product).permit(:name, :price)
-      end
+      #end
     end
 
 end
